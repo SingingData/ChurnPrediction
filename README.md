@@ -14,4 +14,8 @@ Predicting that a customer is likely to churn requires understanding the pattern
 
 For the prediction task we had to choose whether to predict against the attrition event itself or the inactivity that might presage a later attrition. In our modeling approach we predict churn itself. Despite the fact that the actual cancellation decision is a lagging indicator, our model delivered sufficient precision. In future modeling efforts, we will label long-standing inactivity as effective churn.
 
-We defined with MAF a performance requirement in terms of accuracy, precision and recall. Once a model performed at the required levels, we could experiment with retention offers to those predicted to cancel, and to do so we needed to deploy this predictive model in a secure and operationally reliable environment where we could retrieve batch predictions daily and drive retention offers and the associated workflow.
+We defined a performance requirement in terms of accuracy, precision and recall. Once a model performed at the required levels, we could experiment with retention offers to those predicted to cancel, and to do so we needed to deploy this predictive model in a secure and operationally reliable environment where we could retrieve batch predictions daily and drive retention offers and the associated workflow.
+
+### Approach
+
+
