@@ -18,4 +18,12 @@ We defined a performance requirement in terms of accuracy, precision and recall.
 
 ### Approach
 
+We applied a multi-input model construction. We used the Keras functional API and combined the textual and categorical data coming from incident history with the time series transaction and state sequence for the account.  The multi-input approach allows us to essentially concatenate these and fit the hybrid model.
+
+Our sequential non-text information is best harnessed in a Bidirectional LSTM – a type of sequential model described in more detail here and here – that allows the model to learn end-of-sequence and beginning-of-sequence behavior. This maps to domain experts' knowledge that distinctive behavior at the end of the subscription period presages churn.  And the progress of events over time holds patterns that can be used to predict eventual churn.
+
+On the other hand our textual and categorical data need a separate model to learn from this differently structured data. We have several options here. The simplest option that we  developed was to convert the sequence of textual and categorical data, coming from our incident data, into a 1D CNN. We created row-wise sequences of textual incident information for each account, tokenized these words, and applied Glove word embeddings for each. These were right-aligned and pre-padded to better learn patterns from most recent date in order to discern sequences and events that presage churn.
+
+In future iterations, we could add additional input models to learn from non-volatile state and profile information to improve the signal, and categorical embedding modeling for the categorical incident information and other categorical data.
+We developed and fit each model input independently to understand its performance and adjust the hyperparameters to a good starting point to fit the hybrid model. Then we combine them into a hybrid construction and fit against the two inputs.  An excerpt of the model is below, with more about the approach and the rest of the code in this Github repo.
 
