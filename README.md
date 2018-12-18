@@ -1,6 +1,6 @@
 # ChurnPrediction
 Predict churn of a subscriber using a multi-input model to predict churn.
-Read the full code story [here] (https://microsoft.com/developerblog)
+Read the full code story here: (https://microsoft.com/developerblog)
 
 ### Business Problem
 
